@@ -18,10 +18,12 @@ let paula;
 let vitor;
 let som;
 
+function preload() {
+  som = loadSound("sounds/placeholder.mp3");
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight); // creating canvas with width w and height h
-
-  som = loadSound("sounds/placeholder.mp3");
 
   vivian = new Vivian();
   laura = new Laura();
