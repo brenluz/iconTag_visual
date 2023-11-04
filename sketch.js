@@ -6,21 +6,57 @@ let bg;
 let iconicos = {};
 let iconico = [];
 
-let som;
+let som; // Resposta sonora WIP
 
 function preload() {
-  som = loadSound("sounds/placeholder.mp3");
-  iconicos  = loadJSON("iconicos/iconicos.json");
+  // som = loadSound("sounds/placeholder.mp3"); // Resposta sonora WIP
+  iconicos  = loadJSON("iconicos.json");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight); // creating canvas with width w and height h
 
-  bg = loadImage("images/logot.png");
-  loadIconicos();
+  bg = loadImage("images/logot.png"); // loading the background image
+  loadUsers(); // loading the iconicos from the json file
 }
 
-function loadIconicos() {
+function draw() {
+  background(255);
+
+  imageMode(CENTER);
+  image(bg, windowWidth / 2, windowHeight / 2, 640, 640);
+  imageMode(CORNER);
+
+  for (i = 0; i < iconico.length; i++) {
+    mostraUser(iconico[i]);
+    // console.log(iconico[i].name);
+  }
+
+  for (i = 0; i < iconico.length; i++) {
+    for (j = 0; j < iconico.length; j++) {
+      if (i != j) {
+        colidir(iconico[i], iconico[j]);
+      }
+    }
+  }
+  // userCollision(breno)
+  // usercollision(eduardo)
+  // userCollision(francisco)
+  // userCollision(gigi)
+  // userCollision(jarbas)
+  // userCollision(kami)
+  // userCollision(laura)
+  // userCollision(lucas)
+  // userCollision(paula)
+  // userCollision(ricardo)
+  // userCollision(thiagol)
+  // userCollision(thiagom)
+  // userCollision(vitor)
+  // userCollision(vivian)
+}
+
+// função que carrega os iconicos do json
+function loadUsers() {
   loopLength = iconicos.user.length;
   for (let i = 0; i < loopLength; i++) {
     console.log(iconicos.user[i].img);
@@ -40,52 +76,19 @@ function loadIconicos() {
   }
 }
 
-function draw() {
-  background(255);
-
-  imageMode(CENTER);
-  image(bg, windowWidth / 2, windowHeight / 2, 640, 640);
-  imageMode(CORNER);
-
-  for (i = 0; i < iconico.length; i++) {
-    mostrauser(iconico[i]);
-    console.log(iconico[i].name);
-  }
-
-  for (i = 0; i < iconico.length; i++) {
-    for (j = 0; j < iconico.length; j++) {
-      if (i != j) {
-        colidir(iconico[i], iconico[j]);
-      }
-    }
-  }
-  // usercollision(breno)
-  // usercollision(eduardo)
-  // usercollision(francisco)
-  // usercollision(gigi)
-  // usercollision(jarbas)
-  // usercollision(kami)
-  // usercollision(laura)
-  // usercollision(lucas)
-  // usercollision(paula)
-  // usercollision(ricardo)
-  // usercollision(thiagol)
-  // usercollision(thiagom)
-  // usercollision(vitor)
-  // usercollision(vivian)
-}
-
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
-function mostrauser(user) {
+// função que mostra os usuarios
+function mostraUser(user) {
   user.wander();
   user.update();
   user.show();
   user.edges();
 }
 
+// função que faz a colisão 
 function colidir(user1, user2) {
   if (
     collideRectRect(
@@ -101,10 +104,13 @@ function colidir(user1, user2) {
   ) {
     user1.vel.x = -user1.vel.x;
     user1.vel.y = -user1.vel.y;
+    user1.pos.x = user1.pos.x + user1.vel.x;
+    user1.pos.y = user1.pos.y + user1.vel.y;
   }
 }
 
-function usercollision(user) {
+// função que aplica a colisão a um usuario
+function userCollision(user) {
   for (i = 0; i < iconico.length; i++) {
     if (user != iconico[i]) {
       colidir(user, iconico[i]);
