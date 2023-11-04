@@ -3,94 +3,59 @@ let h = 700;
 
 let bg;
 
-let vivian;
-let laura;
-let breno;
-let jarbas;
-let ricardo;
-let thiagol;
-let kami;
-let francisco;
-let thiagom;
-let lucas;
-let eduardo;
-let paula;
-let vitor;
+let iconicos = {};
+let iconico = [];
+
 let som;
+
+function preload() {
+  som = loadSound("sounds/placeholder.mp3");
+  iconicos  = loadJSON("iconicos/iconicos.json");
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight); // creating canvas with width w and height h
 
-  som = loadSound("sounds/placeholder.mp3");
-
-  vivian = new Vivian();
-  laura = new Laura();
-  breno = new Breno();
-  jarbas = new Jarbas();
-  ricardo = new Ricardo();
-  thiagol = new Thiagol();
-  francisco = new Francisco();
-  thiagom = new Thiagom();
-  kami = new Kami();
-  lucas = new Lucas();
-  eduardo = new Eduardo();
-  gigi = new Gigi();
-  vitor = new Vitor();
-  paula = new Paula();
-  lena = new Lena();
-
-  iconicos = [
-    breno,
-    eduardo,
-    francisco,
-    gigi,
-    jarbas,
-    kami,
-    laura,
-    lena,
-    lucas,
-    ricardo,
-    thiagol,
-    thiagom,
-    vitor,
-    vivian,
-  ];
-
-  imgBreno = loadImage("images/breno.png");
-  imgEdu = loadImage("images/eduardo.png");
-  imgFrancisco = loadImage("images/francisco.png");
-  imgGigi = loadImage("images/gigi.png");
-  imgJarbas = loadImage("images/jarbas.png");
-  imgKami = loadImage("images/kami.png");
-  imgLaura = loadImage("images/laura.png");
-  imgLena = loadImage("images/lena.png");
-  imgLucas = loadImage("images/lucas.png");
-  // imgPaula = loadImage('images/paula.png')
-  imgRicardo = loadImage("images/ricardo.png");
-  imgThiagol = loadImage("images/thiagol.png");
-  imgThiagom = loadImage("images/thiagom.png");
-  imgVivian = loadImage("images/vivian.png");
-  imgVitor = loadImage("images/vitor.png");
-
   bg = loadImage("images/logot.png");
+  loadIconicos();
+}
+
+function loadIconicos() {
+  loopLength = iconicos.user.length;
+  for (let i = 0; i < loopLength; i++) {
+    console.log(iconicos.user[i].img);
+    iconico.push(new Agent(
+      iconicos.user[i].name,
+      iconicos.user[i].initialEnergy,
+      iconicos.user[i].foodEnergy,
+      iconicos.user[i].lostEnergy,
+      iconicos.user[i].maxEnergy,
+      iconicos.user[i].reprodProb,
+      iconicos.user[i].reprodNumber,
+      iconicos.user[i].visionR,
+      iconicos.user[i].maxSpeed,
+      iconicos.user[i].r,
+      iconicos.user[i].img
+    ))
+  }
 }
 
 function draw() {
-  background(255); // setting background color as rgb(200, 200, 200)
-  // displacing the origin to the center of the canvas
+  background(255);
 
   imageMode(CENTER);
   image(bg, windowWidth / 2, windowHeight / 2, 640, 640);
   imageMode(CORNER);
 
-  for (i = 0; i < iconicos.length; i++) {
-    mostrauser(iconicos[i]);
+  for (i = 0; i < iconico.length; i++) {
+    mostrauser(iconico[i]);
+    console.log(iconico[i].name);
   }
 
-  for (i = 0; i < iconicos.length; i++) {
-    for (j = 0; j < iconicos.length; j++) {
+  for (i = 0; i < iconico.length; i++) {
+    for (j = 0; j < iconico.length; j++) {
       if (i != j) {
-        colidir(iconicos[i], iconicos[j]);
+        colidir(iconico[i], iconico[j]);
       }
     }
   }
@@ -140,9 +105,9 @@ function colidir(user1, user2) {
 }
 
 function usercollision(user) {
-  for (i = 0; i < iconicos.length; i++) {
-    if (user != iconicos[i]) {
-      colidir(user, iconicos[i]);
+  for (i = 0; i < iconico.length; i++) {
+    if (user != iconico[i]) {
+      colidir(user, iconico[i]);
     }
   }
 }
