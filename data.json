@@ -1,0 +1,94 @@
+{    
+    "iconicos": [
+        {
+            "name":"Breno",
+            "maxSpeed" : 1.5,
+            "r" : 15,
+            "img" : "./source/avatar/breno.png"
+        },
+        {
+            "name":"Eduardo",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/eduardo.png"
+        },
+        {
+            "name":"Francisco",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/francisco.png"
+        },
+        {
+            "name":"Giovanna",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/gigi.png"
+        },
+        {
+            "name":"Jarbas",
+            "maxSpeed" : 1.5,
+            "r" : 31,
+            "img" : "./source/avatar/jarbas.png"
+        },
+        {
+            "name":"Kami",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/kami.png"
+        },
+        {
+            "name":"Laura",
+            "maxSpeed" : 1.5,
+            "r" : 12,
+            "img" : "./source/avatar/laura.png"
+        },
+        {
+            "name":"Lena",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/lena.png"
+        },
+        {
+            "name":"Lucas",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/lucas.png"
+        },
+        {
+            "name":"Paula",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/paula.png"
+        },
+        {
+            "name":"Ricardo",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/ricardo.png"
+        },
+        {
+            "name":"Thiago Leal",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/thiagol.png"
+        },
+        {
+            "name":"Thiago Moreira",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/thiagom.png"
+        },
+        {
+            "name":"Vitor",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/vitor.png"
+        },   
+        {
+            "name":"Vivian",
+            "maxSpeed" : 1.5,
+            "r" : 20,
+            "img" : "./source/avatar/vivian.png"
+        }
+    ]
+}
