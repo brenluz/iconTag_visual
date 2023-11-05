@@ -7,8 +7,7 @@ let bg;
 // DATA VARIABLES
 let data = {};
 let iconico = [];
-
-let closest = null;
+let existingPositions = [];
 
 let som; 
 
@@ -52,7 +51,8 @@ function loadUsers() {
     iconico.push(new Agent(
       data.iconicos[i].name,
       data.iconicos[i].maxSpeed,
-      data.iconicos[i].imgSource
+      data.iconicos[i].imgSource,
+      existingPositions
     ))
   }
 }

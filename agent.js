@@ -1,19 +1,28 @@
 class Agent extends Vehicle {
-  constructor(name, maxSpeed, imgSource) {
+  constructor(name, maxSpeed, imgSource, existingPosition) {
+    let x, y;
 
     // initial position
-    let x = Math.random() * (windowWidth - 1) + 1;
-    let y = Math.random() * (windowHeight - 1) + 1;
+    // x = Math.random() * (windowWidth - 1) + 1;
+    // y = Math.random() * (windowHeight - 1) + 1;
+
+    while (true) {
+      x = Math.random() * (windowWidth - 1) + 1;
+      y = Math.random() * (windowHeight - 1) + 1;
+
+      if (!existingPositions.some(pos => dist(x, y, pos.x, pos.y) < 150)) {
+        print("shit")
+        break;
+      }
+    }
     super(x, y);
     
     // parameters
     this.name = name;
     this.maxSpeed = maxSpeed;
     this.imgSource = imgSource != '' ? loadImage(imgSource) : loadImage('https://placehold.co/50X50?text=ICON');
-  
-    this.mask = createGraphics(50, 50);
-    this.mask.ellipse(0, 0, 50, 50); // Draw a circle in the mask
-    this.imgSource.mask(this.mask); // Apply the mask to the image
+
+    existingPositions.push({ x, y });
   }
 
   show() {
