@@ -4,5 +4,5 @@ This is the visual representation of the Icontag project developed by The Lab IC
 
 Cria um espaço com os membros do laboratorio se movendo e colidindo para mostrar que estão presentes no laboratorio no momento
 
-![Alt text](https://github.com/brenluz/iconTag_visual/tree/main/images/screenshot.png)
+![alt text](https://github.com/brenluz/iconTag_visual/tree/main/images/screenshot.png)
 

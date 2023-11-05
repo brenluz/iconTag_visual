@@ -9,7 +9,7 @@ let iconico = [];
 let som; // Resposta sonora WIP
 
 function preload() {
-  // som = loadSound("sounds/placeholder.mp3"); // Resposta sonora WIP
+  som = loadSound("sounds/discord.mp3"); // Resposta sonora WIP
   iconicos  = loadJSON("iconicos.json");
 }
 
@@ -39,7 +39,8 @@ function draw() {
       }
     }
   }
-  // userCollision(breno)
+
+  // userCollision(iconico[0])
   // usercollision(eduardo)
   // userCollision(francisco)
   // userCollision(gigi)
@@ -80,6 +81,9 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+function mouseClicked() {
+  som.play(); // Resposta sonora 
+}
 // função que mostra os usuarios
 function mostraUser(user) {
   user.wander();
@@ -106,6 +110,7 @@ function colidir(user1, user2) {
     user1.vel.y = -user1.vel.y;
     user1.pos.x = user1.pos.x + user1.vel.x;
     user1.pos.y = user1.pos.y + user1.vel.y;
+    som.play(); 
   }
 }
 
