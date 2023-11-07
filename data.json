@@ -4,7 +4,7 @@
             "name":"Breno",
             "maxSpeed" : 1.5,
             "r" : 15,
-            "imgSource" : "./source/avatar/breno.png"
+            "imgSource" : "./source/avatar/breno1.png"
         },
         {
             "name":"Eduardo",
